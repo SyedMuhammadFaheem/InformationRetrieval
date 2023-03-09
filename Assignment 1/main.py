@@ -4,9 +4,15 @@
 # dictionaryObject.documentProcessing()
 # dictionaryObject.printPostingList()
 # dictionaryObject.writeToFile()
-import Queries 
-QueryObj=Queries.Queries()
 
+
+# import Queries 
+# QueryObj=Queries.Queries()
 # QueryObj.printPositionalIndex()
-QueryObj.loadPositionalIndex()
-QueryObj.queryInput()
+# QueryObj.loadPositionalIndex()
+
+
+import SearchGUI
+
+guiObj=SearchGUI
+guiObj.triggerGUI()

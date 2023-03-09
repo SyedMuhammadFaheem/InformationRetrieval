@@ -53,9 +53,9 @@ class Dictionary:
         self.appendDictionary(words,fileNum)
    
     def lemmatizeWords(self,words):
-        # filtered=[self.stemmer.stem(word) for word in words]
-        filtered = [self.lemmatizer.lemmatize(word) for word in words]
-        return filtered
+        filtered1=[self.stemmer.stem(word) for word in words]
+        filtered2= [self.lemmatizer.lemmatize(word) for word in words]
+        return sorted(filtered1+filtered2)
     
     def appendDictionary(self,words,fileNum):
         for index,word in enumerate(words):
