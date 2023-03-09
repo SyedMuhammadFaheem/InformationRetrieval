@@ -117,10 +117,39 @@ class Queries:
             result+=tempList2
         return sorted(list(set(result)))
 
+    def proximityQuery(self,term1,term2,k):
+        result=[]
+        temp=self.andQuery(term1,term2)
+        index1=[]
+        index2=[]
+        for doc in temp:
+            index1=self.__words[term1][0][doc]
+            index2=self.__words[term2][0][doc]
+            i,j=0,0
+            while i<len(index1) and j<len(index2):
+                if index1[i]+k+1==index2[j]:
+                    result.append(doc)
+                i+=1
+                j+=1
+        return result
+
     def queryProcessing(self,query): 
         query=query.lower()
         if len(query)>1:
             splitQuery=query.split(' ')
+        check=False
+        k=splitQuery[-1]
+        kIndex=''
+        for letter in k:
+            if letter!='/':
+                kIndex+=letter
+            if letter=='/':
+                check=True
+        if check:     
+            kIndex=int(kIndex)
+            self.__resultSet=self.proximityQuery(splitQuery[0],splitQuery[1],kIndex)
+            return self.__resultSet
+        
         operators=['and','or','not']
         i=0
         if len(splitQuery)==1:
@@ -313,11 +342,10 @@ class Queries:
                     self.__resultSet=self.postingOrQuery(temp,notTemp3)
                 elif splitQuery[5]=='and':
                     self.__resultSet=self.postingAndQuery(temp,notTemp3)
-        self.generateResultSet()
+        return self.__resultSet
 
-    def queryInput(self):
-        query=input("Enter your Boolean Query: ")
-        self.queryProcessing(query)
+    def queryInput(self,query):
+        return self.queryProcessing(query)
 
     def generateResultSet(self):
         print('Result-Set:',self.__resultSet)
