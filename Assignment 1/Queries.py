@@ -147,7 +147,7 @@ class Queries:
             index2 = self.__words[term2][0][doc]
             i, j = 0, 0
             while i < len(index1) and j < len(index2):
-                if index1[i]+k+1 == index2[j]:
+                if index1[i]+k+1 == index2[j] or index2[j]+k+1 == index1[i]:
                     result.append(doc)
                 i += 1
                 j += 1
