@@ -21,3 +21,32 @@ The Boolean retrieval model is a search model that retrieves documents that matc
   `python3 main.py`
 * #### For Windows
   `python main.py`
+### Queries Format
+#### Simple Query
+* word
+#### Complement Query
+* not word
+#### Intersection Query
+* word1 and word2
+* word1 and word2 and word3
+* not word1 and word2
+* word1 and not word2
+* not word1 and not word2
+* not word1 and word2 and word3
+* word1 and not word2 and word3
+* word1 and word2 and not word3
+* not word1 and not word2 and not word3
+#### Union Query
+* word1 or word2
+* word1 or word2 or word3
+* not word1 or word2
+* word1 or not word2
+* not word1 or not word2
+* not word1 or word2 or word3
+* word1 or not word2 or word3
+* word1 or word2 or not word3
+* not word1 or not word2 or not word3
+#### Mixed Query
+* It includes query with mixed boolean opearators (AND, OR, NOT) and word limit upto 3 words max.
+#### Proximity Query
+* word1 word2 /k, here 'k' represents the no. of words word2 is distant from word1.
