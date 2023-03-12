@@ -3,6 +3,7 @@ This repo consists of all the assignments, projects, tasks of Information Retrie
 
 # Assignment 1
 ## Implementation of Boolean Retrieval Model
+Link to Article: [Boolean Retrieval Model]()
 
 ### Introduction
 The Boolean retrieval model is a search model that retrieves documents that match a Boolean expression (a query) of terms, where the terms are connected by Boolean operators (AND, OR, NOT).
