@@ -145,12 +145,12 @@ class Queries:
         for doc in temp:
             index1 = self.__words[term1][0][doc]
             index2 = self.__words[term2][0][doc]
-            i, j = 0, 0
-            while i < len(index1) and j < len(index2):
-                if index1[i]+k+1 == index2[j] or index2[j]+k+1 == index1[i]:
-                    result.append(doc)
+            i = 0
+            while i < len(index1):
+                for j in range(len(index2)):
+                    if index1[i]+k+1 == index2[j] or index2[j]+k+1 == index1[i]:
+                        result.append(doc)
                 i += 1
-                j += 1
         return result
 
     # controller function which determines the type of query being entered and calling the appropriate functions to provide with the result set
@@ -162,9 +162,9 @@ class Queries:
         k = splitQuery[-1]
         kIndex = ''
         for letter in k:
-            if letter != '/':
+            if letter != '\\':
                 kIndex += letter
-            if letter == '/':
+            if letter == '\\':
                 check = True
         if check:
             kIndex = int(kIndex)
