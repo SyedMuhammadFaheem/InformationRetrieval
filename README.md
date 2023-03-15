@@ -50,4 +50,4 @@ The Boolean retrieval model is a search model that retrieves documents that matc
 #### Mixed Query
 * It includes query with mixed boolean opearators (AND, OR, NOT) and word limit upto 3 words max.
 #### Proximity Query
-* word1 word2 /k, here 'k' represents the no. of words word2 is distant from word1.
+* word1 word2 \k, here 'k' represents the no. of words word2 is distant from word1.
