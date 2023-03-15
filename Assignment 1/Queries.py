@@ -149,7 +149,8 @@ class Queries:
             while i < len(index1):
                 for j in range(len(index2)):
                     if index1[i]+k+1 == index2[j] or index2[j]+k+1 == index1[i]:
-                        result.append(doc)
+                        if doc not in result:
+                            result.append(doc)
                 i += 1
         return result
 
@@ -394,7 +395,7 @@ class Queries:
 
     # prompts the user to enter query as input
     def queryInput(self, query):
-        return self.queryProcessing(query)
+        return self.queryProcessing(query.lower())
 
     # prints the resultant document set
     def generateResultSet(self):

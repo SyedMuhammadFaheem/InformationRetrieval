@@ -67,7 +67,7 @@ class Dictionary:
         filtered1 = [self.stemmer.stem(word) for word in words]
         filtered2 = [self.lemmatizer.lemmatize(word) for word in words]
         tempFilter=[word for word in filtered1 if word not in filtered2]
-        tempFilter=list(set(tempFilter+filtered2))
+        tempFilter=tempFilter+filtered2
         return sorted(tempFilter)
 
     # after all the necessary processes the word gets appended to the dictionary after checking if its not already present in the dictionary. If it is present, then only the document no. gets appended to the dictionary along with its position in the document
