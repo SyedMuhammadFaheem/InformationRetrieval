@@ -45,8 +45,8 @@ class Queries:
         result = []
         i = 1
         while i <= 30:
-            if i < len(presentDocs) and presentDocs[i] == i:
-                continue
+            if i in presentDocs:
+                pass
             else:
                 result.append(i)
             i += 1

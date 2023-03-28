@@ -59,7 +59,6 @@ class Dictionary:
         words = word_tokenize(sentence)
         words = self.removeContractions(words)
         words = self.lemmatizeWords(words)
-        words = self.removeStopWords(words)
         self.appendDictionary(words, fileNum)
 
     # helps in the process of lemmatization to improve precision and also stemming which improves recall
@@ -77,7 +76,7 @@ class Dictionary:
                     if letter in string.ascii_lowercase:
                         filtered.append(letter)
                 word = ''.join(filtered)
-            if len(word) > 2:
+            if len(word) > 2 and word not in self.__stopWords:
                 if word in self.__words:
                     if fileNum in self.__words[word][0]:
                         if index not in self.__words[word][0][fileNum]:
@@ -108,6 +107,7 @@ class Dictionary:
         fileObj = Dataset.Dataset()
         fileObj.readDataset()
         files = fileObj.getFiles()
+        self.readStopWords()
         fileNum = 1
         for doc in files:
             text = self.removeWhiteSpaces(doc)
