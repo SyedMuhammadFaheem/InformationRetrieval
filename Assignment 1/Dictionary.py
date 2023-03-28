@@ -66,9 +66,7 @@ class Dictionary:
     def lemmatizeWords(self, words):
         filtered1 = [self.stemmer.stem(word) for word in words]
         filtered2 = [self.lemmatizer.lemmatize(word) for word in words]
-        tempFilter=[word for word in filtered1 if word not in filtered2]
-        tempFilter=tempFilter+filtered2
-        return sorted(tempFilter)
+        return filtered1+filtered2
 
     # after all the necessary processes the word gets appended to the dictionary after checking if its not already present in the dictionary. If it is present, then only the document no. gets appended to the dictionary along with its position in the document
     def appendDictionary(self, words, fileNum):
@@ -90,6 +88,7 @@ class Dictionary:
                     self.__words[word] = []
                     self.__words[word].append({})
                     self.__words[word][0][fileNum] = [index]
+        self.__words=dict(sorted(self.__words.items()))
 
     # removes the punctuations which include fullstops, commas, and inverted commas to avoid leaving behind of important words
     def removePunctuation(self, sentence):

@@ -148,7 +148,7 @@ class Queries:
             i = 0
             while i < len(index1):
                 for j in range(len(index2)):
-                    if index1[i]+k+1 == index2[j] or index2[j]+k+1 == index1[i]:
+                    if index1[i]+k+1 == index2[j] or index1[i]+k == index2[j]  or index2[j]+k+1 == index1[i] or index2[j]+k == index1[i]:
                         if doc not in result:
                             result.append(doc)
                 i += 1
