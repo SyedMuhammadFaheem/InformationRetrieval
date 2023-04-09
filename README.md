@@ -51,3 +51,25 @@ The Boolean retrieval model is a search model that retrieves documents that matc
 * It includes query with mixed boolean opearators (AND, OR, NOT) and word limit upto 3 words max.
 #### Proximity Query
 * word1 word2 \k, here 'k' represents the no. of words word2 is distant from word1.
+
+
+# Assignment 2
+## Implementation of Vector Space Model
+
+### Introduction
+The Vector Space Model is a commonly used information retrieval technique where documents are represented as vectors in a high-dimensional space and ranked based on their similarity to a user's query.
+
+### How to run?
+* install python 🐍 latest version and set it up on your computer.
+* clone this repository in a specific folder.
+* unzip the folder and open the assignment folder in a preferred code editor or IDE.
+* #### Install Dependencies 
+  * `pip install nltk`
+  * `pip install unidecode`
+  * `pip install pycontractions`
+  * `pip install AST`
+  * `pip install tk`
+* #### For Linux
+  `python3 main.py`
+* #### For Windows
+  `python main.py`
