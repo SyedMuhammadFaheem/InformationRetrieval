@@ -171,11 +171,11 @@ class Queries:
         i = len(docTrack)-1
         print('Query:', query)
         print(sorted(rankVector, reverse=True))
+        alpha=0.35
         while i >= 0:
-            if rankVector[i]+0.001 >= 0.05:
+            if rankVector[i] >= max(rankVector)*alpha:
                 self.__resultSet.append(docTrack[i])
             i -= 1
-        rankVector = sorted(rankVector, reverse=True)
         return self.__resultSet
 
     # utility function to print the result sets of queries entered. (Never called and only used as a debugging tool)
