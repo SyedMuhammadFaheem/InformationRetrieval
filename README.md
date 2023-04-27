@@ -1,5 +1,5 @@
 # InformationRetrieval
-This repo consists of all the assignments, projects, tasks of Information Retrieval course of FAST NUCES Spring 2023.
+This repo consists of all the assignments, and, tasks of Information Retrieval course of FAST NUCES Spring 2023.
 
 # Assignment 1
 ## Implementation of Boolean Retrieval Model
